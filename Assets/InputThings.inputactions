@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "AltFire",
+                    "type": "Button",
+                    "id": "7408308e-a372-44e7-b4cc-d3b64070244e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -180,7 +189,7 @@
                 {
                     "name": "",
                     "id": "8c8e490b-c610-4785-884f-f04217b23ca4",
-                    "path": "<Pointer>/delta",
+                    "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse;Touch",
@@ -251,6 +260,17 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b57254fe-77b7-42ba-b453-8ce4625457eb",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AltFire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

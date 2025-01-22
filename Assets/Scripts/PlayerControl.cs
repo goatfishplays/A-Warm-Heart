@@ -8,6 +8,8 @@ public class PlayerControl : MonoBehaviour
     public Entity entity;
     private Vector2 moveInputs = Vector2.zero;
     public InputThings pInputs;
+    public SpawnerManager spaManL;
+    public SpawnerManager spaManR;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +50,24 @@ public class PlayerControl : MonoBehaviour
         }
 
         #endregion 
+
+        #region Aiming
+        Vector2 aim = (Vector2)Camera.main.ScreenToWorldPoint(pInputs.Player.Look.ReadValue<Vector2>());
+        // print(aim);
+        spaManL.AimAll(aim);
+        spaManR.AimAll(aim);
+        #endregion
+
+        #region Firing
+        if (pInputs.Player.Fire.IsPressed())
+        {
+            spaManL.FireAll();
+        }
+        if (pInputs.Player.AltFire.IsPressed())
+        {
+            spaManR.FireAll();
+        }
+        #endregion
     }
 
     private void FixedUpdate()
