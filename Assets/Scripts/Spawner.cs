@@ -9,11 +9,13 @@ public class Spawner : MonoBehaviour
 
     [Header("Spawn Info")]
     public SpawnerSO spawnerBase;
+    public bool grabRotFromTransOnSpawn = false;
     public float rotForShot = 0f;
     public int ticksTillNextSpawn = 0;
     public int numShotsTillDisable = -1;
     // public float offset = 0;
     public Vector2 offset = Vector2.right;
+    public Transform offsetSetter;
     [Header("Spawner Aiming")]
 
     public bool active = true;
@@ -33,8 +35,18 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    protected virtual void Awake()
+    protected virtual void Start()
     {
+        if (offsetSetter != null)
+        {
+            offset = offsetSetter.localPosition;
+        }
+
+        if (grabRotFromTransOnSpawn)
+        {
+            rotForShot = transform.rotation.eulerAngles.z;
+        }
+
         childrenSpawners = GetComponentsInChildren<Spawner>();
         foreach (Spawner ts in childrenSpawners)
         {
@@ -90,11 +102,15 @@ public class Spawner : MonoBehaviour
     {
         if (active)
         {
-            if (ticksTillNextSpawn == 0)
+            if (ticksTillNextSpawn <= 0 && shotQueued)
             {
+                if (spawnerBase.unqueueAfterShot)
+                {
+                    shotQueued = false;
+                }
                 Spawn();
             }
-            else if (shotQueued)
+            else
             {
                 ticksTillNextSpawn--;
             }
@@ -113,13 +129,20 @@ public class Spawner : MonoBehaviour
 
     public virtual void Spawn()
     {
-        if (spawnerBase.unqueueAfterShot)
-        {
-            shotQueued = false;
-        }
 
         GameObject curBullet = Instantiate(spawnerBase.bulletPrefab, transform.position + transform.TransformDirection(offset), Quaternion.Euler(0, 0, spawnerBase.bulletRotOffset));
-        curBullet.GetComponentInChildren<Attack>(true).ownerID = ownerID;
+        // GameObject curBullet = Instantiate(spawnerBase.bulletPrefab, transform.position + transform.TransformDirection(offset), Quaternion.Euler(0, 0, spawnerBase.bulletRotOffset));
+        Attack curBulletAtk = curBullet.GetComponentInChildren<Attack>();
+        if (curBulletAtk)
+        {
+            curBulletAtk.ownerID = ownerID;
+        }
+        Spawner curBulletSpawner = curBullet.GetComponentInChildren<Spawner>();
+        if (curBulletSpawner != null)
+        {
+            curBulletSpawner.ownerID = ownerID;
+        }
+
         if (spawnerBase.rotateBullets)
         {
             curBullet.transform.rotation = Quaternion.Euler(0, 0, spawnerBase.bulletRotOffset + rotForShot + spawnerBase.rotForShotOffset);

@@ -12,4 +12,6 @@ public class AttackSO : ScriptableObject
     public bool breaksOnWall = false;
     public bool breaksOnHit = true;
     public bool ownerImmune = true;
+    public bool addsIframes = true;
+    public bool ignoresIframes = false;
 }

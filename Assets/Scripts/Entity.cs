@@ -14,7 +14,7 @@ public class Entity : MonoBehaviour
     public float maxHealth = 100f;
     public float healthChangeRate = 0f;
     public float iFrameTime = 0f;
-    public float iFrameAddTime = .2f;
+    public float iFrameAddTime = .1f;
 
 
     [Header("Movement Settings")]
@@ -63,11 +63,11 @@ public class Entity : MonoBehaviour
         rb.AddForce(movement * Time.deltaTime);
     }
 
-    public virtual void ChangeHealth(float delta, bool addsIframes = true)
+    public virtual void ChangeHealth(float delta, bool addsIframes = true, bool ignoresIframes = false)
     {
         if (changingHealth)
         {
-            if (delta > 0 || iFrameTime < 0.01f)
+            if (delta > 0 || iFrameTime < 0.01f || ignoresIframes)
             {
                 health += delta;
                 if (health > maxHealth)

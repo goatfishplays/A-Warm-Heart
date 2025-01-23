@@ -47,7 +47,7 @@ public class Attack : MonoBehaviour
             // otherEntity.ApplyKnockback(rb.velocity.normalized * kb);
             otherEntity.ApplyKnockback((other.transform.position - transform.position).normalized * attackBase.kb);
             // otherEntity.ApplyKnockback(other. * kb);
-            otherEntity.ChangeHealth(-attackBase.damage);
+            otherEntity.ChangeHealth(-attackBase.damage, attackBase.addsIframes, attackBase.ignoresIframes);
             if (attackBase.breaksOnHit)
             {
                 Break();

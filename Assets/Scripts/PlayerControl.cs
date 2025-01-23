@@ -63,9 +63,18 @@ public class PlayerControl : MonoBehaviour
         {
             spaManL.FireAll();
         }
+        else if (pInputs.Player.Fire.WasReleasedThisFrame())
+        {
+            spaManL.FireAll(false);
+        }
+
         if (pInputs.Player.AltFire.IsPressed())
         {
             spaManR.FireAll();
+        }
+        else if (pInputs.Player.AltFire.WasReleasedThisFrame())
+        {
+            spaManR.FireAll(false);
         }
         #endregion
     }

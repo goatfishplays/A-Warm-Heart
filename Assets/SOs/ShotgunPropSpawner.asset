@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5a07ce5112cc4e489759a86076be6aa, type: 3}
-  m_Name: SpawnerGeneric
+  m_Name: ShotgunPropSpawner
   m_EditorClassIdentifier: 
-  spawnerName: No Name
-  description: No Description
+  spawnerName: Shotgun Prop
+  description: Should not be seen
   sprite: {fileID: 0}
   spawnerID: -1
-  bulletPrefab: {fileID: 6772928536696290058, guid: 3a6e9ddf5774d2941898dad8fc8d42a9, type: 3}
+  bulletPrefab: {fileID: 6544468036566417667, guid: 31ad945b32ac44e438115649f72a1c17, type: 3}
   rotateBullets: 1
   bulletRotOffset: 0
   rotForShotOffset: 0
-  bulletShotForce: 15
+  bulletShotForce: 10
   parrentToSpawner: 0
   maxTicksBetweenSpawns: 20
   destroyAfterDisable: 1

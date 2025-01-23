@@ -6,17 +6,21 @@ public class SpawnerManager : MonoBehaviour
 {
     public Spawner[] spawnersListRot;
     public Spawner[] spawnersListNoRot;
+    // public int fireBufferHoldLengthMax = 5;
+    // public int fireBufferHoldLengthCur = 0;
 
 
-    public void FireAll()
+    public void FireAll(bool setTrue = true)
     {
+        // fireBufferHoldLengthCur = fireBufferHoldLengthMax;
+
         foreach (Spawner spawner in spawnersListRot)
         {
-            spawner.SetShotQueue(true);
+            spawner.SetShotQueue(setTrue);
         }
         foreach (Spawner spawner in spawnersListNoRot)
         {
-            spawner.SetShotQueue(true);
+            spawner.SetShotQueue(setTrue);
         }
     }
 
@@ -24,12 +28,23 @@ public class SpawnerManager : MonoBehaviour
     {
         foreach (Spawner spawner in spawnersListRot)
         {
-            spawner.Aim(targ, true, true);
+            if (spawner != null)
+            {
+                spawner.Aim(targ, true, true);
+            }
         }
         foreach (Spawner spawner in spawnersListNoRot)
         {
-            spawner.Aim(targ, false);
+            if (spawner != null)
+            {
+                spawner.Aim(targ, false);
+            }
         }
+    }
+
+    private void FixedUpdate()
+    {
+
     }
 
 }
