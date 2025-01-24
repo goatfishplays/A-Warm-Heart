@@ -5,7 +5,6 @@ using UnityEngine;
 public class BodyManager : MonoBehaviour
 {
 
-
     public GameObject core;
 
     public GameObject footL;
@@ -20,17 +19,12 @@ public class BodyManager : MonoBehaviour
     public GameObject handR;
     public GameObject shoulderR;
 
-
-    public void Aim(GameObject aimObj, Vector2 targ)
+    public void SetSpawner(Spawner spawner, SpawnerSO spawnerSO)
     {
-        aimObj.transform.right = targ;
-        aimObj.GetComponent<Spawner>().Aim(targ);
+        spawner.spawnerBase = spawnerSO;
+        spawner.GetComponent<SpriteRenderer>().sprite = spawnerSO.sprite;
     }
 
-    public void Fire(GameObject fireObj)
-    {
-        fireObj.GetComponent<Spawner>().SetShotQueue(true);
-    }
 
 
 
