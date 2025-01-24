@@ -19,6 +19,13 @@ public class BodyManager : MonoBehaviour
     public GameObject handR;
     public GameObject shoulderR;
 
+    public GameObject selectedPart;
+
+    public void SetSel(GameObject setSel)
+    {
+        selectedPart = setSel;
+    }
+
     public void SetSpawner(Spawner spawner, SpawnerSO spawnerSO)
     {
         spawner.spawnerBase = spawnerSO;

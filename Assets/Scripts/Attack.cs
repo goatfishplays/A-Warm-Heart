@@ -39,7 +39,7 @@ public class Attack : MonoBehaviour
         {
             Entity otherEntity = other.gameObject.GetComponent<Entity>();
             // if (owner != null && other.gameObject.layer == owner.gameObject.layer && ownerImmune)// don't hit owner/other teammates
-            if (ownerID == otherEntity.id && attackBase.ownerImmune)// don't hit owner/other teammates
+            if ((ownerID == otherEntity.id && attackBase.ownerImmune) || (!attackBase.ignoresIframes && otherEntity.iFrameTime > 0))// don't hit owner/other teammates
             {
                 return;
             }

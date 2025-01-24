@@ -1,51 +1,103 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Crafter : MonoBehaviour
 {
-    public BodyManager bm;
-    public Inventory inv;
-
     [System.Serializable]
     public class Recipe
     {
         public Inventory.Item[] ingreds;
-        public string partType;
-        public int partInd;
-        public Recipe(Inventory.Item[] ingreds, string partType, int partInd)
+        public SpawnerSO spawnerSO;
+        // public string partType; 
+        // public int partInd;
+        public Recipe(Inventory.Item[] ingreds, SpawnerSO spawnerSO = null)
         {
             this.ingreds = ingreds;
-            this.partType = partType;
-            this.partInd = partInd;
+            // this.partType = partType;
+            this.spawnerSO = spawnerSO;
         }
     }
 
+    public BodyManager bm;
+    public Inventory inv;
+    public Button craftButton;
     public IngredController[] ingredsUI;
-    public Recipe[] recipes;
-    public string partType = "";
+    public string[] recipesBuilderNames;
+    public Recipe[] recipesBuilder;
+    public Dictionary<string, Recipe> recipes = new Dictionary<string, Recipe>();
+    public string curRecipe = "";
+    // public string partType = "";
 
-    public void ReadRecipe(Recipe rec)
+    public void Awake()
     {
+        for (int i = 0; i < recipesBuilderNames.Length; i++)
+        {
+            recipes.Add(recipesBuilderNames[i], recipesBuilder[i]);
+        }
+        // print(recipes["Rifle"].spawnerSO.spawnerName);
+    }
+
+    public void ReadRecipe(string recName)
+    {
+
+        bool craftable = true;
+        if (bm.selectedPart == null || (bm.selectedPart.GetComponent<Spawner>() && recName == bm.selectedPart.GetComponent<Spawner>().spawnerBase.spawnerName))
+        {
+            craftable = false;
+        }
         foreach (IngredController ic in ingredsUI)
         {
             ic.gameObject.SetActive(false);
         }
-        for (int i = 0; i < rec.ingreds.Length; i++)
+        print(recName);
+        if (recipes.ContainsKey(recName))
         {
-            ingredsUI[i].gameObject.SetActive(true);
-            ItemSO curItem = rec.ingreds[i].itemSO;
-            int count = rec.ingreds[i].count;
-
-            ingredsUI[i].SetBois(curItem.itemName, "x" + count, curItem.icon, inv.CheckItem(curItem, count) ? Color.white : Color.red);
+            print("hats");
+            Recipe rec = recipes[recName];
+            for (int i = 0; i < rec.ingreds.Length; i++)
+            {
+                ingredsUI[i].gameObject.SetActive(true);
+                ItemSO curItem = rec.ingreds[i].itemSO;
+                int count = rec.ingreds[i].count;
+                bool enough = inv.CheckItem(curItem, count);
+                if (!enough)
+                {
+                    craftable = false;
+                }
+                ingredsUI[i].SetBois(curItem.itemName, "x" + count, curItem.icon, enough ? Color.white : Color.red);
+            }
         }
+        else
+        {
+            craftable = false;
+        }
+        craftButton.interactable = craftable;
     }
 
-
-
-    private void Start()
+    public void Craft()
     {
-        ReadRecipe(recipes[0]);
+        Recipe rec = recipes[curRecipe];
+        if (rec.spawnerSO != null)
+        {
+            // bm.selectedPart.GetComponent<Spawner>().spawnerBase = rec.spawnerSO; 
+            bm.SetSpawner(bm.selectedPart.GetComponent<Spawner>(), rec.spawnerSO);
+        }
+        // if (rec.partType == "Arm")
+        // switch (rec.partType)
+        // {
+        //     case "Spawner":
+        //         break;
+        // }
     }
+
+
+
+    // private void Start()
+    // {
+    //     ReadRecipe(recipes[0]);
+    // }
 
 }

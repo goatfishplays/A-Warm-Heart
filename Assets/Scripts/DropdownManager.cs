@@ -6,6 +6,7 @@ using UnityEngine;
 public class DropdownManager : MonoBehaviour
 {
     public TMP_Dropdown dropdown;
+    public Crafter crafter;
     public List<TMP_Dropdown.OptionData> brains;
     public List<TMP_Dropdown.OptionData> hearts;
     public List<TMP_Dropdown.OptionData> eyes;
@@ -20,15 +21,49 @@ public class DropdownManager : MonoBehaviour
         dropdown.ClearOptions();
         switch (type)
         {
+            case "Brain":
+                dropdown.AddOptions(brains);
+                break;
+            case "Heart":
+                dropdown.AddOptions(hearts);
+                break;
+            case "Eye":
+                dropdown.AddOptions(eyes);
+                break;
+            case "Shoulder":
+                dropdown.AddOptions(shoulders);
+                break;
+            case "Arm":
+                dropdown.AddOptions(arms);
+                break;
             case "Hand":
                 dropdown.AddOptions(hands);
                 break;
             case "Leg":
                 dropdown.AddOptions(legs);
                 break;
+            case "Foot":
+                dropdown.AddOptions(feet);
+                break;
             default:
-                dropdown.options = brains;
                 break;
         }
+
+        crafter.ReadRecipe(dropdown.captionText.text);
+    }
+
+    public void UseSelection()
+    {
+        crafter.ReadRecipe(dropdown.captionText.text);
+    }
+
+    private void Start()
+    {
+        UpdateDDOptions("");
+        // UpdateDDOptions("Hand");
+        // UpdateDDOptions("");
+        // UpdateDDOptions("Hand");
     }
 }
+
+
