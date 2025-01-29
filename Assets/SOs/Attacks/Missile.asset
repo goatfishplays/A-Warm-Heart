@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 483a4a284d1a93340948eefde2b7184f, type: 3}
   m_Name: Missile
   m_EditorClassIdentifier: 
-  liveTime: 7
-  damage: 30
+  liveTime: 2
+  damage: 10
   kb: 0
   breaksOnWall: 1
   breaksOnHit: 1

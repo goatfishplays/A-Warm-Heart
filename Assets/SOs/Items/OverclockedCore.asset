@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: Overclocked Core
   description: Inteligence is what gave them power
   useText: No use text
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 281e70a1ace617a49ad67f0ad6b6d81b, type: 3}
   itemID: 2

@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnerName: Missile Launcher
   description: Fast with medium AOE
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: a7c7adc06df11c34e92ac38ee530912a, type: 3}
   spawnerID: -1
   bulletPrefab: {fileID: 2007451023666121671, guid: 0fb9cc8e43301ee4f818ac92b361a7ea, type: 3}
   rotateBullets: 1
-  bulletRotOffset: 0
+  bulletRotOffset: 90
   rotForShotOffset: 0
-  bulletShotForce: 40
+  bulletShotForce: 25
   parrentToSpawner: 0
   maxTicksBetweenSpawns: 40
   destroyAfterDisable: 1

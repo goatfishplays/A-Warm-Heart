@@ -100,7 +100,7 @@ public class Spawner : MonoBehaviour
 
     public virtual void FixedUpdate()
     {
-        if (active)
+        if (active && spawnerBase != null)
         {
             if (ticksTillNextSpawn <= 0 && shotQueued)
             {
@@ -129,37 +129,40 @@ public class Spawner : MonoBehaviour
 
     public virtual void Spawn()
     {
+        if (spawnerBase != null && spawnerBase.bulletPrefab != null)
+        {
+            GameObject curBullet = Instantiate(spawnerBase.bulletPrefab, transform.position + transform.TransformDirection(offset), Quaternion.Euler(0, 0, spawnerBase.bulletRotOffset));
+            // GameObject curBullet = Instantiate(spawnerBase.bulletPrefab, transform.position + transform.TransformDirection(offset), Quaternion.Euler(0, 0, spawnerBase.bulletRotOffset));
+            Attack curBulletAtk = curBullet.GetComponentInChildren<Attack>();
+            if (curBulletAtk)
+            {
+                curBulletAtk.ownerID = ownerID;
+            }
+            Spawner curBulletSpawner = curBullet.GetComponentInChildren<Spawner>();
+            if (curBulletSpawner != null)
+            {
+                curBulletSpawner.ownerID = ownerID;
+            }
 
-        GameObject curBullet = Instantiate(spawnerBase.bulletPrefab, transform.position + transform.TransformDirection(offset), Quaternion.Euler(0, 0, spawnerBase.bulletRotOffset));
-        // GameObject curBullet = Instantiate(spawnerBase.bulletPrefab, transform.position + transform.TransformDirection(offset), Quaternion.Euler(0, 0, spawnerBase.bulletRotOffset));
-        Attack curBulletAtk = curBullet.GetComponentInChildren<Attack>();
-        if (curBulletAtk)
-        {
-            curBulletAtk.ownerID = ownerID;
-        }
-        Spawner curBulletSpawner = curBullet.GetComponentInChildren<Spawner>();
-        if (curBulletSpawner != null)
-        {
-            curBulletSpawner.ownerID = ownerID;
-        }
+            if (spawnerBase.rotateBullets)
+            {
+                curBullet.transform.rotation = Quaternion.Euler(0, 0, spawnerBase.bulletRotOffset + rotForShot + spawnerBase.rotForShotOffset);
+            }
+            if (spawnerBase.parrentToSpawner)
+            {
+                curBullet.transform.parent = transform;
+            }
+            if (spawnerBase.bulletShotForce != 0)
+            {
+                Rigidbody2D rb = curBullet.GetComponent<Rigidbody2D>();
+                // apply directional velocity 
+                rb.AddForce(new Vector2(Mathf.Cos(Mathf.Deg2Rad * rotForShot + spawnerBase.rotForShotOffset), Mathf.Sin(Mathf.Deg2Rad * rotForShot + spawnerBase.rotForShotOffset)).normalized * spawnerBase.bulletShotForce, ForceMode2D.Impulse);
 
-        if (spawnerBase.rotateBullets)
-        {
-            curBullet.transform.rotation = Quaternion.Euler(0, 0, spawnerBase.bulletRotOffset + rotForShot + spawnerBase.rotForShotOffset);
-        }
-        if (spawnerBase.parrentToSpawner)
-        {
-            curBullet.transform.parent = transform;
-        }
-        if (spawnerBase.bulletShotForce != 0)
-        {
-            Rigidbody2D rb = curBullet.GetComponent<Rigidbody2D>();
-            // apply directional velocity 
-            rb.AddForce(new Vector2(Mathf.Cos(Mathf.Deg2Rad * rotForShot + spawnerBase.rotForShotOffset), Mathf.Sin(Mathf.Deg2Rad * rotForShot + spawnerBase.rotForShotOffset)).normalized * spawnerBase.bulletShotForce, ForceMode2D.Impulse);
+            }
+
+            ResetSpawner();
 
         }
-
-        ResetSpawner();
     }
 
     public virtual void ResetSpawner()

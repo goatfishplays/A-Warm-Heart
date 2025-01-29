@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: Steel Heart
   description: Keep pumping. No matter what.
   useText: No use text
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: b5a66174dea071041b93ccc309b2c51c, type: 3}
   itemID: 3

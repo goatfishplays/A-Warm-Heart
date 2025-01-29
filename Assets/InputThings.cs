@@ -62,6 +62,24 @@ public partial class @InputThings: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""647847f6-1eb8-496f-89c2-4f0f8b0db415"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UpgradeMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""977c32fa-ab62-4ca6-944a-a77aa13e78da"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -293,6 +311,28 @@ public partial class @InputThings: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""AltFire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e87d8feb-5d58-4b29-9ec5-8131708fa30f"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4a96b6cd-b143-4acc-b3e6-b9847da407d4"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpgradeMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -884,6 +924,8 @@ public partial class @InputThings: IInputActionCollection2, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_AltFire = m_Player.FindAction("AltFire", throwIfNotFound: true);
+        m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
+        m_Player_UpgradeMenu = m_Player.FindAction("UpgradeMenu", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -961,6 +1003,8 @@ public partial class @InputThings: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_AltFire;
+    private readonly InputAction m_Player_Dash;
+    private readonly InputAction m_Player_UpgradeMenu;
     public struct PlayerActions
     {
         private @InputThings m_Wrapper;
@@ -969,6 +1013,8 @@ public partial class @InputThings: IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @AltFire => m_Wrapper.m_Player_AltFire;
+        public InputAction @Dash => m_Wrapper.m_Player_Dash;
+        public InputAction @UpgradeMenu => m_Wrapper.m_Player_UpgradeMenu;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -990,6 +1036,12 @@ public partial class @InputThings: IInputActionCollection2, IDisposable
             @AltFire.started += instance.OnAltFire;
             @AltFire.performed += instance.OnAltFire;
             @AltFire.canceled += instance.OnAltFire;
+            @Dash.started += instance.OnDash;
+            @Dash.performed += instance.OnDash;
+            @Dash.canceled += instance.OnDash;
+            @UpgradeMenu.started += instance.OnUpgradeMenu;
+            @UpgradeMenu.performed += instance.OnUpgradeMenu;
+            @UpgradeMenu.canceled += instance.OnUpgradeMenu;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1006,6 +1058,12 @@ public partial class @InputThings: IInputActionCollection2, IDisposable
             @AltFire.started -= instance.OnAltFire;
             @AltFire.performed -= instance.OnAltFire;
             @AltFire.canceled -= instance.OnAltFire;
+            @Dash.started -= instance.OnDash;
+            @Dash.performed -= instance.OnDash;
+            @Dash.canceled -= instance.OnDash;
+            @UpgradeMenu.started -= instance.OnUpgradeMenu;
+            @UpgradeMenu.performed -= instance.OnUpgradeMenu;
+            @UpgradeMenu.canceled -= instance.OnUpgradeMenu;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1192,6 +1250,8 @@ public partial class @InputThings: IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnAltFire(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
+        void OnUpgradeMenu(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Healthbar : MonoBehaviour
 {
+    public static Healthbar instance;
     public Entity entity;
     public Image fill;
 
@@ -12,6 +13,7 @@ public class Healthbar : MonoBehaviour
     public Color altColor;
     public Image heartIcon;
     public Sprite steelHeartSprite;
+    public Sprite steelHeartSpriteBroken;
 
     public void SetFill(float percent)
     {
@@ -24,23 +26,29 @@ public class Healthbar : MonoBehaviour
 
     public void SetAlternateHeart()
     {
-        fill.color = altColor;
         heartIcon.sprite = steelHeartSprite;
+    }
+
+    public void SetBrokenHeart()
+    {
+        fill.color = altColor;
+        heartIcon.sprite = steelHeartSpriteBroken;
     }
 
     // Start is called before the first frame update
     void Start()
     {
         SetFill(1);
+        instance = this;
     }
 
     // Update is called once per frame
     void Update()
     {
         SetFill(entity.health / entity.maxHealth);
-        if (Input.GetKey(KeyCode.Space))
-        {
-            SetAlternateHeart();
-        }
+        // if (Input.GetKey(KeyCode.Space))
+        // {
+        //     SetAlternateHeart();
+        // }
     }
 }

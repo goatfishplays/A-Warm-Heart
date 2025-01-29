@@ -5,22 +5,26 @@ using UnityEngine.InputSystem;
 
 public class PlayerControl : MonoBehaviour
 {
+    public static PlayerControl instance;
     public Entity entity;
     private Vector2 moveInputs = Vector2.zero;
     public InputThings pInputs;
     public SpawnerManager spaManL;
     public SpawnerManager spaManR;
+    public MenuManager menuManager;
+    public int numDropRolls = 1;
 
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         entity = GetComponent<Entity>();
         pInputs = new InputThings();
         pInputs.Player.Enable();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
         #region Movement
@@ -35,13 +39,14 @@ public class PlayerControl : MonoBehaviour
             // }
             // #endregion
 
-            #region Calculate Move Speed
-            entity.moveSpeedMult = 1f;
-            // Apply modifiers
-            #endregion
+            // #region Calculate Move Speed
+            // entity.moveSpeedMult = 1f;
+            // // Apply modifiers 
+            // #endregion
 
             // Planar Movement
             entity.Move(moveInputs);
+
 
         }
         else
@@ -50,6 +55,13 @@ public class PlayerControl : MonoBehaviour
         }
 
         #endregion 
+
+    }
+
+    private void Update()
+    {
+        // Gather Input
+        moveInputs = pInputs.Player.Move.ReadValue<Vector2>();
 
         #region Aiming
         Vector2 aim = (Vector2)Camera.main.ScreenToWorldPoint(pInputs.Player.Look.ReadValue<Vector2>());
@@ -77,12 +89,17 @@ public class PlayerControl : MonoBehaviour
             spaManR.FireAll(false);
         }
         #endregion
-    }
 
-    private void FixedUpdate()
-    {
-        // Gather Input
-        moveInputs = pInputs.Player.Move.ReadValue<Vector2>();
+        // Upgrades Menu
+        if (pInputs.Player.UpgradeMenu.WasPressedThisFrame())
+        {
+            menuManager.ToggleUpgradeMenu();
+        }
 
+        // Dash
+        if (pInputs.Player.Dash.WasPressedThisFrame())
+        {
+            entity.Dash(moveInputs);
+        }
     }
 }

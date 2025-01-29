@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a07ce5112cc4e489759a86076be6aa, type: 3}
+  m_Name: Washer
+  m_EditorClassIdentifier: 
+  spawnerName: Wash Machine
+  description: Probably burnt
+  sprite: {fileID: 0}
+  spawnerID: -1
+  bulletPrefab: {fileID: 1503761814110253455, guid: d742ce3e7e33e984380043da28979785, type: 3}
+  rotateBullets: 0
+  bulletRotOffset: 0
+  rotForShotOffset: 0
+  bulletShotForce: 2
+  parrentToSpawner: 0
+  maxTicksBetweenSpawns: 5
+  destroyAfterDisable: 1
+  unqueueAfterShot: 1

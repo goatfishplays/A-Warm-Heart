@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1901657038303357534, guid: 4efd30664b4cc674eb2d2686d425659c, type: 3}
+      propertyPath: sr
+      value: 
+      objectReference: {fileID: 8228130327010121282}
+    - target: {fileID: -1901657038303357534, guid: 4efd30664b4cc674eb2d2686d425659c, type: 3}
+      propertyPath: atk
+      value: 
+      objectReference: {fileID: 3181480286568950920}
+    - target: {fileID: 864217158710801249, guid: 4efd30664b4cc674eb2d2686d425659c, type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1250665729703133693, guid: 4efd30664b4cc674eb2d2686d425659c, type: 3}
       propertyPath: m_Name
       value: Grenade Explosion Variant Variant
@@ -18,15 +30,15 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 04cf9672aeed8df4fbe1842316826854, type: 2}
     - target: {fileID: 5276008797665322998, guid: 4efd30664b4cc674eb2d2686d425659c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5276008797665322998, guid: 4efd30664b4cc674eb2d2686d425659c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5276008797665322998, guid: 4efd30664b4cc674eb2d2686d425659c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5276008797665322998, guid: 4efd30664b4cc674eb2d2686d425659c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -68,8 +80,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7078434112112303635, guid: 4efd30664b4cc674eb2d2686d425659c, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078434112112303635, guid: 4efd30664b4cc674eb2d2686d425659c, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078434112112303635, guid: 4efd30664b4cc674eb2d2686d425659c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b0744894e8683ed4280568f0c0622a58, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4efd30664b4cc674eb2d2686d425659c, type: 3}
+--- !u!114 &3181480286568950920 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4336251572265755865, guid: 4efd30664b4cc674eb2d2686d425659c, type: 3}
+  m_PrefabInstance: {fileID: 1156183353917474897}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb9c7875bd745a34f944814046f78214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!212 &8228130327010121282 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7078434112112303635, guid: 4efd30664b4cc674eb2d2686d425659c, type: 3}
+  m_PrefabInstance: {fileID: 1156183353917474897}
+  m_PrefabAsset: {fileID: 0}

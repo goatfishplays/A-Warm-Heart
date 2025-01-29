@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnerName: Sword
   description: Slashy slashy
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: e9b4864f0f7e42047bbb6911f5322c91, type: 3}
   spawnerID: -1
   bulletPrefab: {fileID: 1235035711340051159, guid: 40f4bed5fcd4f734993b0a7a473e742d, type: 3}
   rotateBullets: 1
-  bulletRotOffset: 0
+  bulletRotOffset: 90
   rotForShotOffset: 0
-  bulletShotForce: 2
+  bulletShotForce: 5
   parrentToSpawner: 1
-  maxTicksBetweenSpawns: 10
+  maxTicksBetweenSpawns: 20
   destroyAfterDisable: 1
   unqueueAfterShot: 1

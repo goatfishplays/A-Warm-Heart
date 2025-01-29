@@ -18,7 +18,7 @@ MonoBehaviour:
   spawnerID: -1
   bulletPrefab: {fileID: 6544468036566417667, guid: 31ad945b32ac44e438115649f72a1c17, type: 3}
   rotateBullets: 1
-  bulletRotOffset: 0
+  bulletRotOffset: 90
   rotForShotOffset: 0
   bulletShotForce: 10
   parrentToSpawner: 0

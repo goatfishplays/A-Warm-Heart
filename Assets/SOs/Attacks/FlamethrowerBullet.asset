@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 483a4a284d1a93340948eefde2b7184f, type: 3}
   m_Name: FlamethrowerBullet
   m_EditorClassIdentifier: 
-  liveTime: 3.5
+  liveTime: 2
   damage: 5
   kb: 0
   breaksOnWall: 0

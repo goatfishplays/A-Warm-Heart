@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnerName: Grenade Launcher
   description: Big AOE
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: c8e0ba8661edaae42bb2e00176a376e3, type: 3}
   spawnerID: -1
   bulletPrefab: {fileID: 1962521176698115333, guid: 22d2380f3d882624cb184c1c5e9f7b59, type: 3}
   rotateBullets: 1

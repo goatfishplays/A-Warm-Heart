@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,12 +24,14 @@ public class Crafter : MonoBehaviour
 
     public BodyManager bm;
     public Inventory inv;
+    public Entity playerEntity;
     public Button craftButton;
     public IngredController[] ingredsUI;
     public string[] recipesBuilderNames;
     public Recipe[] recipesBuilder;
     public Dictionary<string, Recipe> recipes = new Dictionary<string, Recipe>();
     public string curRecipe = "";
+    public TextMeshProUGUI desc;
     // public string partType = "";
 
     public void Awake()
@@ -44,7 +47,7 @@ public class Crafter : MonoBehaviour
     {
 
         bool craftable = true;
-        if (bm.selectedPart == null || (bm.selectedPart.GetComponent<Spawner>() && recName == bm.selectedPart.GetComponent<Spawner>().spawnerBase.spawnerName))
+        if (bm.selectedPart == null || (bm.selectedPart.GetComponent<Spawner>().spawnerBase != null && recName == bm.selectedPart.GetComponent<Spawner>().spawnerBase.spawnerName))
         {
             craftable = false;
         }
@@ -52,11 +55,17 @@ public class Crafter : MonoBehaviour
         {
             ic.gameObject.SetActive(false);
         }
-        print(recName);
+        // print(recName);
         if (recipes.ContainsKey(recName))
         {
-            print("hats");
+            curRecipe = recName;
+
+
+            // print("hats");
             Recipe rec = recipes[recName];
+
+            desc.text = rec.spawnerSO.description;
+
             for (int i = 0; i < rec.ingreds.Length; i++)
             {
                 ingredsUI[i].gameObject.SetActive(true);
@@ -84,7 +93,20 @@ public class Crafter : MonoBehaviour
         {
             // bm.selectedPart.GetComponent<Spawner>().spawnerBase = rec.spawnerSO; 
             bm.SetSpawner(bm.selectedPart.GetComponent<Spawner>(), rec.spawnerSO);
+            if (curRecipe == "Steel Heart")
+            {
+                Healthbar.instance.SetAlternateHeart();
+            }
         }
+
+
+        for (int i = 0; i < rec.ingreds.Length; i++)
+        {
+            ItemSO curItem = rec.ingreds[i].itemSO;
+            int count = rec.ingreds[i].count;
+            inv.RemoveItem(curItem, count);
+        }
+        ReadRecipe(curRecipe);
         // if (rec.partType == "Arm")
         // switch (rec.partType)
         // {

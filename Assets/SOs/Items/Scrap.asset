@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: Scrap
   description: Metal bits from the machines
   useText: No use text
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: a526d3d604912984898f79a81900a499, type: 3}
   itemID: 1

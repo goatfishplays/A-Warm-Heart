@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: Boom Powder
   description: Explosive power
   useText: No use text
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 3fcb9c1dd70c4454caf48212f5c38d01, type: 3}
   itemID: 4

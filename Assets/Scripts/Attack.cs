@@ -55,6 +55,32 @@ public class Attack : MonoBehaviour
         }
     }
 
+    // public virtual void OnTriggerStay2D(Collider2D other)
+    // {
+    //     if (other.gameObject.layer == LayerMask.NameToLayer("World") && attackBase.breaksOnWall)
+    //     {
+    //         Break();
+    //     }
+    //     else if (other.gameObject.layer == LayerMask.NameToLayer("Entity"))
+    //     {
+    //         Entity otherEntity = other.gameObject.GetComponent<Entity>();
+    //         // if (owner != null && other.gameObject.layer == owner.gameObject.layer && ownerImmune)// don't hit owner/other teammates
+    //         if ((ownerID == otherEntity.id && attackBase.ownerImmune) || (!attackBase.ignoresIframes && otherEntity.iFrameTime > 0))// don't hit owner/other teammates
+    //         {
+    //             return;
+    //         }
+
+    //         // otherEntity.ApplyKnockback(rb.velocity.normalized * kb);
+    //         otherEntity.ApplyKnockback((other.transform.position - transform.position).normalized * attackBase.kb);
+    //         // otherEntity.ApplyKnockback(other. * kb);
+    //         otherEntity.ChangeHealth(-attackBase.damage, attackBase.addsIframes, attackBase.ignoresIframes);
+    //         if (attackBase.breaksOnHit)
+    //         {
+    //             Break();
+    //         }
+    //     }
+    // }
+
     public virtual void Break()
     {
         Destroy(gameObject);

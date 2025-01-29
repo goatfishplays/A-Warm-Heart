@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: Energy Cell
   description: Powers things in need of excessive power
   useText: No use text
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: ed59a0ef16b050243a31b9ac6107c392, type: 3}
   itemID: 5

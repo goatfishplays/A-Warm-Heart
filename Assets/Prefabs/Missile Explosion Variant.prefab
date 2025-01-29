@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 404516134687857921, guid: 3a6e9ddf5774d2941898dad8fc8d42a9, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 404516134687857921, guid: 3a6e9ddf5774d2941898dad8fc8d42a9, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 404516134687857921, guid: 3a6e9ddf5774d2941898dad8fc8d42a9, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 404516134687857921, guid: 3a6e9ddf5774d2941898dad8fc8d42a9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -64,6 +64,22 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3359299488649880804, guid: 3a6e9ddf5774d2941898dad8fc8d42a9, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3359299488649880804, guid: 3a6e9ddf5774d2941898dad8fc8d42a9, type: 3}
+      propertyPath: m_FlipY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3359299488649880804, guid: 3a6e9ddf5774d2941898dad8fc8d42a9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b0744894e8683ed4280568f0c0622a58, type: 3}
+    - target: {fileID: 5141799783347227030, guid: 3a6e9ddf5774d2941898dad8fc8d42a9, type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6772928536696290058, guid: 3a6e9ddf5774d2941898dad8fc8d42a9, type: 3}
       propertyPath: m_Name
       value: Missile Explosion Variant
@@ -75,5 +91,43 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6772928536696290058, guid: 3a6e9ddf5774d2941898dad8fc8d42a9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1901657038303357534}
   m_SourcePrefab: {fileID: 100100000, guid: 3a6e9ddf5774d2941898dad8fc8d42a9, type: 3}
+--- !u!1 &1250665729703133693 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6772928536696290058, guid: 3a6e9ddf5774d2941898dad8fc8d42a9, type: 3}
+  m_PrefabInstance: {fileID: 5522828507909372663}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-1901657038303357534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250665729703133693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5f0123bcc7edad4e9d2d75802791691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sr: {fileID: 7078434112112303635}
+  atk: {fileID: 4336251572265755865}
+--- !u!114 &4336251572265755865 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8108857095454432814, guid: 3a6e9ddf5774d2941898dad8fc8d42a9, type: 3}
+  m_PrefabInstance: {fileID: 5522828507909372663}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250665729703133693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb9c7875bd745a34f944814046f78214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!212 &7078434112112303635 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3359299488649880804, guid: 3a6e9ddf5774d2941898dad8fc8d42a9, type: 3}
+  m_PrefabInstance: {fileID: 5522828507909372663}
+  m_PrefabAsset: {fileID: 0}
