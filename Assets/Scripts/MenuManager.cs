@@ -5,10 +5,12 @@ using UnityEngine;
 public class MenuManager : MonoBehaviour
 {
     public GameObject UpgradesMenu;
+    public Crafter crafter;
 
-    public void ToggleUpgradeMenu()
+    public void ToggleUpgradeMenu(bool state)
     {
-        UpgradesMenu.SetActive(!UpgradesMenu.activeSelf);
+        UpgradesMenu.SetActive(state);
+        crafter.ReadRecipe(crafter.curRecipe);
         if (UpgradesMenu.activeSelf)
         {
             Time.timeScale = 0;

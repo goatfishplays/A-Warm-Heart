@@ -38,6 +38,7 @@ public class BodyManager : MonoBehaviour
         entity.wheelSpeedModifier = 0;
         entity.steelHeartUnlocked = false;
         entity.healthChangeRate = 1;
+        entity.shield.SetActive(false);
         if (GetComponent<PlayerControl>())
         {
             GetComponent<PlayerControl>().numDropRolls = 1;
@@ -62,6 +63,7 @@ public class BodyManager : MonoBehaviour
                         entity.wheelSpeedModifier += .25f;
                         break;
                     case "Shield Projector":
+                        entity.shield.SetActive(false);
                         entity.maxShield++;
                         entity.curShield++;
                         entity.shield.SetActive(true);

@@ -118,12 +118,20 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: e7c575d5d40da7a4f8a4ab6e672967f3, type: 2}
     - target: {fileID: 2679092657281591179, guid: e38a8bdd493dc814a962ba35a83bf55c, type: 3}
       propertyPath: drops.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2679092657281591179, guid: e38a8bdd493dc814a962ba35a83bf55c, type: 3}
+      propertyPath: drops.Array.data[3].gameObject
+      value: 
+      objectReference: {fileID: 1994414881935071446, guid: 66002d2318433d64a80584a6fa352bc9, type: 3}
     - target: {fileID: 2679092657281591179, guid: e38a8bdd493dc814a962ba35a83bf55c, type: 3}
       propertyPath: drops.Array.data[4].gameObject
       value: 
       objectReference: {fileID: 1994414881935071446, guid: 66002d2318433d64a80584a6fa352bc9, type: 3}
+    - target: {fileID: 2679092657281591179, guid: e38a8bdd493dc814a962ba35a83bf55c, type: 3}
+      propertyPath: drops.Array.data[3].chanceToDrop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2679092657281591179, guid: e38a8bdd493dc814a962ba35a83bf55c, type: 3}
       propertyPath: drops.Array.data[4].chanceToDrop
       value: 1
@@ -135,6 +143,14 @@ PrefabInstance:
     - target: {fileID: 2679092657281591179, guid: e38a8bdd493dc814a962ba35a83bf55c, type: 3}
       propertyPath: drops.Array.data[0].dropCountRange.y
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2679092657281591179, guid: e38a8bdd493dc814a962ba35a83bf55c, type: 3}
+      propertyPath: drops.Array.data[3].dropCountRange.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2679092657281591179, guid: e38a8bdd493dc814a962ba35a83bf55c, type: 3}
+      propertyPath: drops.Array.data[3].dropCountRange.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2679092657281591179, guid: e38a8bdd493dc814a962ba35a83bf55c, type: 3}
       propertyPath: drops.Array.data[4].dropCountRange.x

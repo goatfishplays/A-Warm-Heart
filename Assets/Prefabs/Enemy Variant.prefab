@@ -402,7 +402,7 @@ MonoBehaviour:
   drops:
   - gameObject: {fileID: 122477467235178863, guid: cb0a1bd6236de214b9beec7f7b009151, type: 3}
     chanceToDrop: 100
-    dropCountRange: {x: 5, y: 10}
+    dropCountRange: {x: 1, y: 10}
 --- !u!114 &4442388144355921094 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2953199607380840583, guid: 3f7a11d1d5b57694eadb98a5a72f7117, type: 3}

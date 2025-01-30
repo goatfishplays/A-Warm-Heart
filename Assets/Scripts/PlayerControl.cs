@@ -90,11 +90,11 @@ public class PlayerControl : MonoBehaviour
         }
         #endregion
 
-        // Upgrades Menu
-        if (pInputs.Player.UpgradeMenu.WasPressedThisFrame())
-        {
-            menuManager.ToggleUpgradeMenu();
-        }
+        // // Upgrades Menu 
+        // if (pInputs.Player.UpgradeMenu.WasPressedThisFrame())
+        // {
+        //     menuManager.ToggleUpgradeMenu();
+        // }
 
         // Dash
         if (pInputs.Player.Dash.WasPressedThisFrame())

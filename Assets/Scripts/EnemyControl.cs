@@ -49,7 +49,7 @@ public class EnemyControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        RollState();
     }
 
     void Update()
@@ -65,6 +65,19 @@ public class EnemyControl : MonoBehaviour
                 transform.eulerAngles = Vector3.zero;
             }
         }
+    }
+
+    public void Dash()
+    {
+        if (entityState == EntityState.Pursuit)
+        {
+            entity.Dash(PlayerControl.instance.transform.position - transform.position);
+        }
+        else
+        {
+            entity.Dash(wandPos - (Vector2)transform.position);
+        }
+
     }
     // Update is called once per frame
     void FixedUpdate()

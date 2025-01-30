@@ -21,8 +21,24 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 66316271880757081, guid: 3f7a11d1d5b57694eadb98a5a72f7117, type: 3}
+      propertyPath: health
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 66316271880757081, guid: 3f7a11d1d5b57694eadb98a5a72f7117, type: 3}
+      propertyPath: maxHealth
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 66316271880757081, guid: 3f7a11d1d5b57694eadb98a5a72f7117, type: 3}
       propertyPath: moveSpeed
-      value: 12
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 66316271880757081, guid: 3f7a11d1d5b57694eadb98a5a72f7117, type: 3}
+      propertyPath: destroyOnDie
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 66316271880757081, guid: 3f7a11d1d5b57694eadb98a5a72f7117, type: 3}
+      propertyPath: maxShieldTime
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 66316271880757081, guid: 3f7a11d1d5b57694eadb98a5a72f7117, type: 3}
       propertyPath: healthChangeRate
@@ -30,11 +46,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 316832517460323069, guid: 3f7a11d1d5b57694eadb98a5a72f7117, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -9.5
       objectReference: {fileID: 0}
     - target: {fileID: 316832517460323069, guid: 3f7a11d1d5b57694eadb98a5a72f7117, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 316832517460323069, guid: 3f7a11d1d5b57694eadb98a5a72f7117, type: 3}
       propertyPath: m_LocalPosition.z
@@ -88,10 +104,18 @@ PrefabInstance:
       propertyPath: ownerID
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2155806841762192789, guid: 3f7a11d1d5b57694eadb98a5a72f7117, type: 3}
+      propertyPath: spawnerBase
+      value: 
+      objectReference: {fileID: 11400000, guid: cdd38ab512de79246a62f153584c99c2, type: 2}
     - target: {fileID: 2965747438546927838, guid: 3f7a11d1d5b57694eadb98a5a72f7117, type: 3}
       propertyPath: ownerID
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2965747438546927838, guid: 3f7a11d1d5b57694eadb98a5a72f7117, type: 3}
+      propertyPath: spawnerBase
+      value: 
+      objectReference: {fileID: 11400000, guid: cdd38ab512de79246a62f153584c99c2, type: 2}
     - target: {fileID: 3233364885869168699, guid: 3f7a11d1d5b57694eadb98a5a72f7117, type: 3}
       propertyPath: ownerID
       value: 1
@@ -124,10 +148,18 @@ PrefabInstance:
       propertyPath: ownerID
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6301936940463913854, guid: 3f7a11d1d5b57694eadb98a5a72f7117, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0adb0c20390c55c4fb048cb543452f22, type: 3}
     - target: {fileID: 6302053178899276942, guid: 3f7a11d1d5b57694eadb98a5a72f7117, type: 3}
       propertyPath: ownerID
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7185070106543236661, guid: 3f7a11d1d5b57694eadb98a5a72f7117, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0adb0c20390c55c4fb048cb543452f22, type: 3}
     - target: {fileID: 8748734712674171305, guid: 3f7a11d1d5b57694eadb98a5a72f7117, type: 3}
       propertyPath: ownerID
       value: 1
@@ -283,6 +315,7 @@ MonoBehaviour:
   spaManL: {fileID: 626059011195973305}
   spaManR: {fileID: 3714711380912271977}
   menuManager: {fileID: 0}
+  numDropRolls: 1
 --- !u!114 &8636218012923148803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,17 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a2f46e791de64c46867645b7c94aed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items:
-  - itemSO: {fileID: 11400000, guid: 0b9eb763db0549f4bb3a99663ca1ab77, type: 2}
-    count: 600
-  - itemSO: {fileID: 11400000, guid: 8371691fa79e5cc41a7076808e2bfbfc, type: 2}
-    count: 600
-  - itemSO: {fileID: 11400000, guid: 14c9c50b117403d479bf138c0a38ed46, type: 2}
-    count: 600
-  - itemSO: {fileID: 11400000, guid: 279a08d4561a37340bab9b676992b5f4, type: 2}
-    count: 600
-  - itemSO: {fileID: 11400000, guid: 4da10547721152b4882f4adaf85d5502, type: 2}
-    count: 600
+  items: []
   entity: {fileID: 0}
 --- !u!114 &3714711380912271977 stripped
 MonoBehaviour:

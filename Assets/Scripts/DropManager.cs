@@ -21,7 +21,7 @@ public class DropManager : MonoBehaviour
             {
                 if (Random.value <= drops[i].chanceToDrop)
                 {
-                    GameObject drop = Instantiate(drops[i].gameObject, transform.position, Quaternion.identity);
+                    GameObject drop = Instantiate(drops[i].gameObject, transform.position, Quaternion.identity, LevelManager.instance.dropHolder);
 
                     if (drop.GetComponent<Drop>() != null)
                     {
