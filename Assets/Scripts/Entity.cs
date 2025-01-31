@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Entity : MonoBehaviour
 {
@@ -178,7 +179,7 @@ public class Entity : MonoBehaviour
         {
             rb.AddForce(movementDir.normalized * dashSpeed, ForceMode2D.Impulse);
             dashes--;
-
+            trueImmunity += 0.25f;
         }
     }
 
@@ -198,6 +199,10 @@ public class Entity : MonoBehaviour
             Destroy(gameObject);
         }
         // Destroy(gameObject);
+        if (GetComponent<PlayerControl>())
+        {
+            SceneSwitcher.loadScene("MainMenu");
+        }
 
     }
 }

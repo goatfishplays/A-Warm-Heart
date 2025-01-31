@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3835960087824597776, guid: b6f4cb5be1aebba4b9361160b64b1d02, type: 3}
+      propertyPath: swapToAtkAfterPurs
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3835960087824597776, guid: b6f4cb5be1aebba4b9361160b64b1d02, type: 3}
       propertyPath: swapWhileAttacking
       value: 1
       objectReference: {fileID: 0}

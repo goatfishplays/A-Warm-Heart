@@ -11,7 +11,7 @@ public class PlayerControl : MonoBehaviour
     public InputThings pInputs;
     public SpawnerManager spaManL;
     public SpawnerManager spaManR;
-    public MenuManager menuManager;
+    public bool updating = true;
     public int numDropRolls = 1;
 
     // Start is called before the first frame update
@@ -60,46 +60,56 @@ public class PlayerControl : MonoBehaviour
 
     private void Update()
     {
-        // Gather Input
-        moveInputs = pInputs.Player.Move.ReadValue<Vector2>();
-
-        #region Aiming
-        Vector2 aim = (Vector2)Camera.main.ScreenToWorldPoint(pInputs.Player.Look.ReadValue<Vector2>());
-        // print(aim);
-        spaManL.AimAll(aim);
-        spaManR.AimAll(aim);
-        #endregion
-
-        #region Firing
-        if (pInputs.Player.Fire.IsPressed())
+        if (updating)
         {
-            spaManL.FireAll();
+            // Gather Input
+            moveInputs = pInputs.Player.Move.ReadValue<Vector2>();
+
+            #region Aiming
+            Vector2 aim = (Vector2)Camera.main.ScreenToWorldPoint(pInputs.Player.Look.ReadValue<Vector2>());
+            // print(aim);
+            spaManL.AimAll(aim);
+            spaManR.AimAll(aim);
+            #endregion
+
+            #region Firing
+            if (pInputs.Player.Fire.IsPressed())
+            {
+                spaManL.FireAll();
+            }
+            else if (pInputs.Player.Fire.WasReleasedThisFrame())
+            {
+                spaManL.FireAll(false);
+            }
+
+            if (pInputs.Player.AltFire.IsPressed())
+            {
+                spaManR.FireAll();
+            }
+            else if (pInputs.Player.AltFire.WasReleasedThisFrame())
+            {
+                spaManR.FireAll(false);
+            }
+            #endregion
+
+            // // Upgrades Menu 
+            // if (pInputs.Player.UpgradeMenu.WasPressedThisFrame())
+            // {
+            //     menuManager.ToggleUpgradeMenu();
+            // }
+
+            // Dash
+            if (pInputs.Player.Dash.WasPressedThisFrame())
+            {
+                entity.Dash(moveInputs);
+            }
+
         }
-        else if (pInputs.Player.Fire.WasReleasedThisFrame())
+        else
         {
-            spaManL.FireAll(false);
-        }
 
-        if (pInputs.Player.AltFire.IsPressed())
-        {
-            spaManR.FireAll();
-        }
-        else if (pInputs.Player.AltFire.WasReleasedThisFrame())
-        {
-            spaManR.FireAll(false);
-        }
-        #endregion
-
-        // // Upgrades Menu 
-        // if (pInputs.Player.UpgradeMenu.WasPressedThisFrame())
-        // {
-        //     menuManager.ToggleUpgradeMenu();
-        // }
-
-        // Dash
-        if (pInputs.Player.Dash.WasPressedThisFrame())
-        {
-            entity.Dash(moveInputs);
+            spaManL.AimAll(Vector2.down * 999);
+            spaManR.AimAll(Vector2.down * 999);
         }
     }
 }

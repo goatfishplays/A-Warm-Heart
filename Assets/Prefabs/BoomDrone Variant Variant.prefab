@@ -167,6 +167,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ec: {fileID: 0}
   entity: {fileID: 0}
-  dieRad: 1
+  dieRad: 0.75
   dying: 0
-  idleTime: 0.5
+  idleTime: 0.1

@@ -6,7 +6,6 @@ public class BodyManager : MonoBehaviour
 {
 
     public GameObject core;
-
     public GameObject heart;
 
     public GameObject footL;
@@ -22,6 +21,22 @@ public class BodyManager : MonoBehaviour
     public GameObject handR;
     public GameObject shoulderR;
     public GameObject eyeR;
+    public bool coreChanged = false;
+    public bool heartChanged = false;
+
+    public bool footLChanged = false;
+    public bool legLChanged = false;
+    public bool armLChanged = false;
+    public bool handLChanged = false;
+    public bool shoulderLChanged = false;
+    public bool eyeLChanged = false;
+
+    public bool footRChanged = false;
+    public bool legRChanged = false;
+    public bool armRChanged = false;
+    public bool handRChanged = false;
+    public bool shoulderRChanged = false;
+    public bool eyeRChanged = false;
 
     public Spawner[] spawners;
     public Entity entity;
@@ -95,6 +110,77 @@ public class BodyManager : MonoBehaviour
     public void SetSel(GameObject setSel)
     {
         selectedPart = setSel;
+        if (selectedPart == core)
+        {
+            coreChanged = true;
+
+        }
+        if (selectedPart == heart)
+        {
+            heartChanged = true;
+
+        }
+
+        if (selectedPart == footL)
+        {
+            footLChanged = true;
+
+        }
+        if (selectedPart == legL)
+        {
+            legLChanged = true;
+
+        }
+        if (selectedPart == armL)
+        {
+            armLChanged = true;
+
+        }
+        if (selectedPart == handL)
+        {
+            handLChanged = true;
+
+        }
+        if (selectedPart == shoulderL)
+        {
+            shoulderLChanged = true;
+
+        }
+        if (selectedPart == eyeL)
+        {
+            eyeLChanged = true;
+
+        }
+
+        if (selectedPart == footR)
+        {
+            footRChanged = true;
+
+        }
+        if (selectedPart == legR)
+        {
+            legRChanged = true;
+
+        }
+        if (selectedPart == armR)
+        {
+            armRChanged = true;
+
+        }
+        if (selectedPart == handR)
+        {
+            handRChanged = true;
+
+        }
+        if (selectedPart == shoulderR)
+        {
+            shoulderRChanged = true;
+
+        }
+        if (selectedPart == eyeR)
+        {
+            eyeRChanged = true;
+        }
     }
 
     public void SetSpawner(Spawner spawner, SpawnerSO spawnerSO, bool upEntState = true)

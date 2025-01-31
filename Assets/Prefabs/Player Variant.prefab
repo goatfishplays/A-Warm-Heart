@@ -37,10 +37,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 66316271880757081, guid: 3f7a11d1d5b57694eadb98a5a72f7117, type: 3}
-      propertyPath: maxShieldTime
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 66316271880757081, guid: 3f7a11d1d5b57694eadb98a5a72f7117, type: 3}
       propertyPath: healthChangeRate
       value: 1
       objectReference: {fileID: 0}

@@ -69,6 +69,10 @@ PrefabInstance:
       value: 0.10351143
       objectReference: {fileID: 0}
     - target: {fileID: 8593373811161221799, guid: 69e7c7de7d36e2d4998263d65c8ab6e8, type: 3}
+      propertyPath: swapToAtkAfterPurs
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8593373811161221799, guid: 69e7c7de7d36e2d4998263d65c8ab6e8, type: 3}
       propertyPath: swapWhileAttacking
       value: 1
       objectReference: {fileID: 0}

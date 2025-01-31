@@ -81,6 +81,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2953199607380840583, guid: 3f7a11d1d5b57694eadb98a5a72f7117, type: 3}
+      propertyPath: spawnersListRot.Array.data[1]
+      value: 
+      objectReference: {fileID: 2691698182549388652}
+    - target: {fileID: 2953199607380840583, guid: 3f7a11d1d5b57694eadb98a5a72f7117, type: 3}
       propertyPath: spawnersListRot.Array.data[2]
       value: 
       objectReference: {fileID: 1267851599009636391}
@@ -187,6 +191,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e140ea4ed76f98849add06aacb2fe5a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2691698182549388652 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2965747438546927838, guid: 3f7a11d1d5b57694eadb98a5a72f7117, type: 3}
+  m_PrefabInstance: {fileID: 896962522013695410}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dbb4d81f28f33d4aa226f93f8272ebb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3634948307363887333 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4468495052957680983, guid: 3f7a11d1d5b57694eadb98a5a72f7117, type: 3}
@@ -224,7 +239,7 @@ MonoBehaviour:
   - 0.15
   entityState: 0
   wandPos: {x: 0, y: 0}
-  xyMax: {x: 10, y: 7.5}
+  xyMax: {x: 9.5, y: 7}
   minWandDist: 1
   maxWandDist: 10
   swapToAtkAfterWand: 0

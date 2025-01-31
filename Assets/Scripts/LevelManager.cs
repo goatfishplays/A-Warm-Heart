@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class LevelManager : MonoBehaviour
 {
@@ -28,7 +29,9 @@ public class LevelManager : MonoBehaviour
         EnemiesDead,
         NextLevelQueued,
         Upgradeing,
-        NextLevelSpawning
+        NextLevelSpawning,
+        LastLevel,
+        Owari
     }
 
     public static LevelManager instance;
@@ -50,14 +53,17 @@ public class LevelManager : MonoBehaviour
     public float carRad = 3f;
     public Transform player;
     public SpriteRenderer screenHider;
+
     [Header("Levels")]
     public GameObject lastLevel;
+    public GameObject lastLevelBad;
     public Level[] levels;
     public MenuManager menuManager;
 
     [Header("Cur State")]
     public int levelInd = 0;
     public LevelState levelState = LevelState.NextLevelQueued;
+    public float levelTime = 0f;
 
 
 
@@ -138,7 +144,8 @@ public class LevelManager : MonoBehaviour
                     carTarg.x = carStartPos;
                     car.position = carTarg;
                     player.position = car.position + Vector3.down + Vector3.right * 0.5f;
-                    player.GetComponent<Entity>().ChangeHealth(25, false, true);
+                    Entity playerEntity = player.GetComponent<Entity>();
+                    playerEntity.ChangeHealth(playerEntity.steelHeartUnlocked ? 50 : 25, false, true);
                 }
                 break;
             case LevelState.Upgradeing:
@@ -149,6 +156,7 @@ public class LevelManager : MonoBehaviour
                 }
                 break;
             case LevelState.NextLevelSpawning:
+                levelState = LevelState.EnemiesAlive;
                 if (levelInd < levels.Length)
                 {
                     Level curLev = levels[levelInd];
@@ -169,10 +177,42 @@ public class LevelManager : MonoBehaviour
                 }
                 else
                 {
-                    Instantiate(lastLevel);
+                    levelState = LevelState.LastLevel;
                 }
                 menuManager.ToggleUpgradeMenu(false);
-                levelState = LevelState.EnemiesAlive;
+                break;
+            case LevelState.LastLevel:
+                // Entity pe = player.GetComponent<Entity>();
+                levelTime += Time.deltaTime;
+                BodyManager pb = player.GetComponent<BodyManager>();
+                car.position = new Vector2(99999, 0);
+                player.position = new Vector2(99999, 0);
+                if (pb.coreChanged)
+                {
+                    lastLevelBad.SetActive(true);
+                }
+                else
+                {
+                    lastLevel.SetActive(true);
+
+                }
+
+                Color temp3 = screenHider.color;
+                if (temp3.a > 0)
+                {
+                    temp3.a -= Time.deltaTime * 5;
+                }
+                screenHider.color = temp3;
+                levelState = LevelState.Owari;
+                break;
+            case LevelState.Owari:
+                Color temp4 = screenHider.color;
+                if (temp4.a > 0)
+                {
+                    temp4.a -= Time.deltaTime * 5;
+                }
+                screenHider.color = temp4;
+
                 break;
         }
 
